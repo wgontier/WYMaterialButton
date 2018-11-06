@@ -15,8 +15,8 @@ let presetMaterialColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:0.2)
 @IBDesignable
 open class WYMaterialButton: DesignableButton {
 
-    open var animationDuration = 0.6
-    open var pulseDuration = 0.2
+    @objc open var animationDuration = 0.6
+    @objc open var pulseDuration = 0.2
     
     @IBInspectable
     open var materialColor: UIColor = UIColor.clear {
@@ -67,7 +67,7 @@ open class WYMaterialButton: DesignableButton {
         configure()
     }
     
-    @objc override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
