@@ -67,7 +67,7 @@ open class WYMaterialButton: DesignableButton {
         configure()
     }
     
-    override init(frame: CGRect) {
+    @objc override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
@@ -95,14 +95,14 @@ open class WYMaterialButton: DesignableButton {
         self.addTarget(self, action: #selector(WYMaterialButton.scaleToDefault), for: .touchDragExit)
     }
     
-    func scaleToSmall() {
+    @objc func scaleToSmall() {
         guard pulseEnable else { return }
         let scaleAnimation = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
         scaleAnimation?.toValue = NSValue(cgSize: CGSize(width: 0.95, height: 0.95))
         self.layer.pop_add(scaleAnimation, forKey: "layerScaleSmallAnimation")
     }
     
-    func scaleAnimation() {
+    @objc func scaleAnimation() {
         guard pulseEnable else { return }
         let scaleAnimation = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
         scaleAnimation?.velocity = NSValue(cgSize: CGSize(width: 3, height: 3))
@@ -111,7 +111,7 @@ open class WYMaterialButton: DesignableButton {
         self.layer.pop_add(scaleAnimation, forKey: "layerScaleSpringAnimation")
     }
     
-    func scaleToDefault() {
+    @objc func scaleToDefault() {
         guard pulseEnable else { return }
         let scaleAnimation = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
         scaleAnimation?.toValue = NSValue(cgSize: CGSize(width: 1, height: 1))
